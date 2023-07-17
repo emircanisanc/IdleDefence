@@ -106,11 +106,13 @@ public class GameManager : Singleton<GameManager>
     {
         goldTMPWinPanel.SetText(startGold.ToString());
         int targetGold = PlayerManager.Instance.LevelEndGold;
+        int delta = targetGold - startGold;
+        float duration = 1.5f / (float)delta; 
         while (startGold < targetGold)
         {
             startGold++;
             goldTMPWinPanel.SetText(startGold.ToString());
-            yield return new WaitForSeconds(0.04f);
+            yield return new WaitForSeconds(duration);
         }
     }
 

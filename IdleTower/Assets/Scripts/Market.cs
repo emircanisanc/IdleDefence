@@ -38,7 +38,8 @@ public class Market : Singleton<Market>
         towerLevel = PlayerPrefs.GetInt("towerLevel", 0);
         buttons[0].GetComponentInChildren<TextMeshProUGUI>().SetText(marketItemList.towerGoldsPerBuy[towerLevel].ToString());
         marketItemBuyAmount = new int[marketItemList.marketItems.Count];
-        for (int i = 0; i < buttons.Length - 1; i++)
+        int length = isMarketBtnVisible ? (buttons.Length - 1) : buttons.Length;
+        for (int i = 0; i < length; i++)
         {
             marketItemBuyAmount[i] = PlayerPrefs.GetInt("gun" + i + "buyAmount", 0);
             MarketItem marketItem = marketItemList.marketItems[i];
