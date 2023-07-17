@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232f0e205dce6c6488792cdc44d51aea, type: 3}
+  m_Name: GunList
+  m_EditorClassIdentifier: 
+  marketItems:
+  - prefab: {fileID: 1955412390311935644, guid: e130c88ed0ee6ce4a8391cd26f04486d, type: 3}
+    goldsPerBuy: 140000003200000064000000b4000000180100008601000026020000dc050000c4090000
+  - prefab: {fileID: 7098025763330084373, guid: 54565a163447ac442ad3d02eafaf191a, type: 3}
+    goldsPerBuy: 2800000078000000dc000000900100006c0200008403000014050000c4090000ac0d0000
+  - prefab: {fileID: 5682069259208158343, guid: e7460507e9209974999b26f82d414984, type: 3}
+    goldsPerBuy: 64000000c800000090010000ee020000e8030000c409000088130000
+  gunItems:
+  - typeName: turret
+    level: 1
+    prefab: {fileID: 1955412390311935644, guid: e130c88ed0ee6ce4a8391cd26f04486d, type: 3}
+  - typeName: turret
+    level: 2
+    prefab: {fileID: 1782203025722615784, guid: 80b093dbefacc144c9dc8dad8a21ad92, type: 3}
+  - typeName: turret
+    level: 3
+    prefab: {fileID: 1782203025722615784, guid: 7781d7f3e7d9c2147bb6979af0980b42, type: 3}
+  - typeName: flamethrower
+    level: 1
+    prefab: {fileID: 7098025763330084373, guid: 54565a163447ac442ad3d02eafaf191a, type: 3}
+  - typeName: flamethrower
+    level: 2
+    prefab: {fileID: 7098025763330084373, guid: f530fdf3f677c544480ea611edbf1ebf, type: 3}
+  - typeName: flamethrower
+    level: 3
+    prefab: {fileID: 7098025763330084373, guid: 39fa45f771e763d4baf087b30d5f7c90, type: 3}
+  - typeName: rocketlauncher
+    level: 1
+    prefab: {fileID: 5682069259208158343, guid: e7460507e9209974999b26f82d414984, type: 3}
+  - typeName: rocketlauncher
+    level: 2
+    prefab: {fileID: 5682069259208158343, guid: 156be3a911f2fed4ba803f1157916cc6, type: 3}
+  - typeName: rocketlauncher
+    level: 3
+    prefab: {fileID: 5682069259208158343, guid: 156be3a911f2fed4ba803f1157916cc6, type: 3}
+  towerGoldsPerBuy: c800000088130000
