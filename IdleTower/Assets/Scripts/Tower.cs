@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class Tower : Singleton<Tower>
 {
     List<TowerPart> towerParts;
+    [SerializeField] GameObject explosionParticle;
+    [SerializeField] GameObject fireParticle;
     [SerializeField] Transform towerTopPart;
     [SerializeField] Transform camOrigin;
     [SerializeField] GameObject towerPartPF;
@@ -64,14 +67,36 @@ public class Tower : Singleton<Tower>
             return;
 
         health -= damage;
+        if ((float) health / (float)maxHealth <= 0.5f)
+        {
+            fireParticle.SetActive(true);
+        }
         towerHealthFillBar.value = (float) health / (float)maxHealth;
         towerHealthText.SetText(health.ToString() + " / " + maxHealth.ToString());
+        AudioManager.Instance.PlayTowerDamageSound(transform.position);
         if (health <= 0)
             Die();
     }
 
     private void Die()
     {
+        foreach(var part in towerParts)
+        {
+            foreach (var gunPart in part.gunParts)
+            {
+                if (gunPart.Gun)
+                {
+                    gunPart.Gun.gameObject.SetActive(false);
+                }
+            }
+        }
+        AudioManager.Instance.PlayTowerExplosionSound(transform.position);
+        Sequence sequence = DOTween.Sequence();
+        explosionParticle.transform.SetParent(null);
+        //sequence.Append(transform.DOShakePosition(1f, 0.4f, 5));
+        sequence.Append(transform.DOMoveY(transform.position.y - 10, 5f));
+        GameManager.Instance.EndGame();
+        explosionParticle.SetActive(true);
         GameManager.Instance.EndGame();
     }
 

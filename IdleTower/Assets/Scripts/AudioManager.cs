@@ -12,6 +12,9 @@ public class AudioManager : Singleton<AudioManager>
     [SerializeField] AudioClip gameWin;
     [SerializeField] AudioClip gameLose;
     [SerializeField] AudioClip explosionSound;
+    [SerializeField] AudioClip towerDamageSound;
+    [SerializeField] AudioClip enemyDamageSound;
+    [SerializeField] AudioClip towerExplosionSound;
 
     public void PlayClipAtCamera(AudioClip clip)
     {
@@ -19,6 +22,21 @@ public class AudioManager : Singleton<AudioManager>
             return;
 
         AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+    }
+
+    public void PlayTowerDamageSound(Vector3 position)
+    {
+        PlayClip(position, towerDamageSound);
+    }
+    
+    public void PlayTowerExplosionSound(Vector3 position)
+    {
+        PlayClip(position, towerExplosionSound);
+    }
+
+    public void PlayEnemyDieSound(Vector3 position)
+    {
+        PlayClip(position, enemyDamageSound);
     }
 
     public void PlayClip(Vector3 position, AudioClip clip)

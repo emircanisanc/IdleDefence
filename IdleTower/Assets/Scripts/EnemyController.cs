@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
 
         health -= damage;
         if (health <= 0)
-            Die();
+            Explode();
     }
 
     private void Die()
@@ -65,9 +65,15 @@ public class EnemyController : MonoBehaviour
         ai.isStopped = true;
         isAlive = false;
         enabled = false;
-        dieParticle.transform.SetParent(null);
-        dieParticle.SetActive(true);
         gameObject.SetActive(false);
         EnemySpawner.Instance.OnEnemyDied();
+    }
+
+    private void Explode()
+    {
+        AudioManager.Instance.PlayEnemyDieSound(transform.position);
+        dieParticle.transform.SetParent(null);
+        dieParticle.SetActive(true);
+        Die();
     }
 }

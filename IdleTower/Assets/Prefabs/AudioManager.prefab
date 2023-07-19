@@ -50,3 +50,6 @@ MonoBehaviour:
   gameWin: {fileID: 8300000, guid: 33eab2ff4dcf3214fa69a98010cceb17, type: 3}
   gameLose: {fileID: 8300000, guid: 26d7f0b811bdba44f881adbc7277a87e, type: 3}
   explosionSound: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
+  towerDamageSound: {fileID: 8300000, guid: 70e02441ad3cd8f488092b6a4933e446, type: 3}
+  enemyDamageSound: {fileID: 8300000, guid: 5ed9970e17bfee943a6dff056dc3a9d0, type: 3}
+  towerExplosionSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
